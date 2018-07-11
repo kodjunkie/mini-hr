@@ -1,5 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 # noinspection PyPep8Naming
 from django.contrib.auth import (
@@ -7,11 +9,13 @@ from django.contrib.auth import (
     logout as logoutUser,
     login as loginUser
 )
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.http import JsonResponse, HttpResponseForbidden, HttpResponse
+from django.views.generic import FormView
+
 from .decorators import guest_only
 from django.core.files.storage import default_storage
-from .forms import UserForm
+from .forms import UserForm, SendEmailForm
 
 
 @guest_only
@@ -100,3 +104,23 @@ def update(request):
 @login_required
 def dashboard(request):
     return render(request, 'users/dashboard.html')
+
+
+# Send email form class
+class SendUserEmails(LoginRequiredMixin, FormView):
+    template_name = 'admin/send_email.html'
+    form_class = SendEmailForm
+    success_url = reverse_lazy('admin:users_user_changelist')
+
+    def form_valid(self, form):
+        users = form.cleaned_data['users']
+        subject = form.cleaned_data['subject']
+        message = form.cleaned_data['message']
+        recipient = []
+        for user in users:
+            recipient.append(user.email)
+        send_mail(subject, message, 'from@example.com', recipient)
+        user_message = '{0} users emailed successfully, for the sake of demo the message is logged in the console.'\
+            .format(form.cleaned_data['users'].count())
+        messages.success(self.request, user_message)
+        return super(SendUserEmails, self).form_valid(form)

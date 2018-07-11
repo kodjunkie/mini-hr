@@ -20,11 +20,14 @@ Then open ``.dbconfig`` environment file and update database details and lastly 
 
 Create super user which will manage the staffs
 
-    python3.6 manage.py createsuperuser --email name@domain.com --username name
+    python3 manage.py createsuperuser --email name@domain.com --username name
 
 ## How is works
 -   Only the super user can create staffs
 -   Staffs can then login to update their profile with other required details
 -   The super user can browser staff data
 -   Search by 'email', 'phone', 'department', 'position'
--   And also filter by 'department' and 'work status'
+-   And also filter by 'department', 'is active' and 'work status'
+
+## Added feature
+-   The super user can send emails to all or selected users

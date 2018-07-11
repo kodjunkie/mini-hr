@@ -105,6 +105,9 @@ LOGIN_URL = 'users:index'
 LOGIN_REDIRECT_URL = 'users:dashboard'
 AUTH_USER_MODEL = 'users.User'
 
+# Log email to console
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 

@@ -1,5 +1,8 @@
 from django.forms import (
-    ModelForm, Select, DateInput
+    ModelForm, Select, DateInput,
+    Form, CharField, TextInput,
+    Textarea, ModelMultipleChoiceField,
+    SelectMultiple
 )
 from .models import User
 
@@ -24,3 +27,14 @@ class UserForm(ModelForm):
             'date_employed': DateInput(attrs={'class': 'form-control', 'placeholder': 'yyyy-mm-dd'}),
             'dob': DateInput(attrs={'class': 'form-control', 'placeholder': 'yyyy-mm-dd'})
         }
+
+
+class SendEmailForm(Form):
+    subject = CharField(
+        widget=TextInput(attrs={'placeholder': 'Subject'}))
+    message = CharField(widget=Textarea)
+    users = ModelMultipleChoiceField(
+        label="To",
+        queryset=User.objects.all(),
+        widget=SelectMultiple()
+    )
