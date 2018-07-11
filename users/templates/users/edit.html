@@ -1,0 +1,183 @@
+{% extends "layouts/master.html" %}
+{% load static %}
+{% block title %}Edit profile | Mini-HR Software{% endblock %}
+
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <form method="post" action="{% url 'users:update' %}" role="form" enctype="multipart/form-data" name="updateProfile">
+                    {% csrf_token %}
+                    <div class="card-header">
+                        <span class="oi oi-pencil" aria-hidden="true"></span>
+                        Edit Profile
+                    </div>
+                    <div class="card-body">
+                        <h4 class="subhead mt-0">Personal Info</h4>
+                        <div class="row">
+                            <div class="col-md-3 text-center">
+                                <img src="{% get_media_prefix %}{{ user.avatar }}" title="{{ user.fullname }}"
+                                     alt="{{ user.fullname }}" class="img-thumbnail" width="140" height="140">
+                            </div>
+                            <div class="col-md-9">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="first_name">First Name</label>
+                                            <input type="text" class="form-control" name="first_name" id="first_name"
+                                                   value="{{ user.first_name }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="last_name">Last Name</label>
+                                            <input type="text" class="form-control" name="last_name" id="last_name"
+                                                   value="{{ user.last_name }}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="dob">Date of birth</label>
+                                            {{ form.dob }}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="gender">Gender</label>
+                                            {{ form.gender }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="avatar">Avatar</label>
+                                    <div class="input-group">
+                                        <label class="input-group-text">
+                                            <span class="btn btn-outline-primary">
+                                                Browse&hellip; <input type="file" accept="image/*" class="form-control" name="avatar" id="avatar" style="display: none;">
+                                            </span>
+                                        </label>
+                                        <input type="text" class="form-control" readonly style="margin-top: 0">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="email">E-mail Address</label>
+                                    <input type="email" class="form-control" name="email" id="email"
+                                           value="{{ user.email }}">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="phone">Phone</label>
+                                    <input type="text" class="form-control" name="phone" id="phone"
+                                           value="{{ user.phone }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="marital_status">Marital Status</label>
+                                    {{ form.marital_status }}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="address">Address</label>
+                                    <input type="text" class="form-control" name="address" id="address"
+                                           value="{{ user.address }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="city">City</label>
+                                    <input type="text" class="form-control" name="city" id="city"
+                                           value="{{ user.city }}">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="state">State</label>
+                                    <input type="text" class="form-control" name="state" id="state"
+                                           value="{{ user.state }}">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="country">Country</label>
+                                    <input type="text" class="form-control" name="country" id="country"
+                                           value="{{ user.country }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="bio">Bio</label>
+                                    <textarea class="form-control" name="bio" id="bio"
+                                              rows="2">{{ user.bio }}</textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4 class="subhead">Employment Info</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="department">Department</label>
+                                    {{ form.department }}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="position">Position</label>
+                                    {{ form.position }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="work_type">Work Type</label>
+                                    {{ form.work_type }}
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="date_employed">Date Employed</label>
+                                    {{ form.date_employed }}
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="work_status">Work Status</label>
+                                    {{ form.work_status }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer clearfix">
+                        <div class="float-right">
+                            <span class="loader"></span>
+                            <button id="update" class="btn btn-outline-primary" type="submit">Update</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block scripts %}
+    <script charset="UTF-8" src="{% static 'assets/js/update-profile.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends "layouts/master.html" %}
+{% load static %}
+{% block title %}{{ user.fullname }} | Mini-HR Software{% endblock %}
+
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-3 text-center">
+                            <img src="{% get_media_prefix %}{{ user.avatar }}" title="{{ user.fullname }}"
+                                 alt="{{ user.fullname }}" class="img-thumbnail" width="140" height="140">
+                        </div>
+                        <div class="col-md-9">
+                            <h5 class="subhead">Personal</h5>
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <span class="oi oi-person" aria-hidden="true"></span> {{ user.fullname|capfirst }}
+                                </div>
+                                <div class="col-md-7">
+                                    <span class="oi oi-calendar" aria-hidden="true"></span> {{ user.dob }}
+                                </div>
+                                <div class="col-md-5">
+                                    <span class="oi oi-list-rich" aria-hidden="true"></span> {{ user.gender|capfirst }}
+                                </div>
+                                <div class="col-md-7">
+                                    <span class="oi oi-star" aria-hidden="true"></span> {{ user.marital_status }}
+                                </div>
+                                <div class="col-md-5">
+                                    <span class="oi oi-phone" aria-hidden="true"></span> {{ user.phone }}
+                                </div>
+                                <div class="col-md-7">
+                                    <span class="oi oi-envelope-closed" aria-hidden="true"></span> {{ user.email|capfirst }}
+                                </div>
+                                <div class="col-md-5">
+                                    <span class="oi oi-map-marker" aria-hidden="true"></span> {{ user.city|capfirst }}
+                                </div>
+                                <div class="col-md-7">
+                                    <span class="oi oi-location" aria-hidden="true"></span> {{ user.state|capfirst }}, {{ user.country|capfirst }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-4">
+                            <h5 class="subhead">Employment</h5>
+                            <span class="oi oi-tag" aria-hidden="true"></span> {{ user.work_type|capfirst }} <br>
+                            <span class="oi oi-target" aria-hidden="true"></span> {{ user.position|capfirst }} <br>
+                            <span class="oi oi-action-redo" aria-hidden="true"></span> {{ user.work_status|capfirst }} <br>
+                            <span class="oi oi-action-undo" aria-hidden="true"></span> {{ user.department|capfirst }} <br>
+                            <span class="oi oi-calendar" aria-hidden="true"></span> {{ user.date_employed }}
+                        </div>
+                        <div class="col-md-8">
+                            <h5 class="subhead">Biography</h5>
+                            {{ user.bio }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,10 @@
+body {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+.subhead {
+    border-bottom: 1px solid lightgray;
+    display: block;
+    margin: 8px 0 20px 0;
+    padding-left: 4px;
+}
