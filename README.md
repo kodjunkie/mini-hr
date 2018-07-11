@@ -9,18 +9,24 @@ This is the git repo for the small HR software task..
 ## Installation
 Open terminal in desired directory
 
-    git clone git@github.com:Paplow/flexisaf-django-task.git
-    cd flexisaf-django-task
-    pip3 install -r requirements.txt
+```sh
+git clone git@github.com:Paplow/flexisaf-django-task.git
+cd flexisaf-django-task
+pip3 install -r requirements.txt
+```
 
 Then open ``.dbconfig`` environment file and update database details and lastly run
 
-    python3 manage.py collectstatic
-    python3 manage.py runserver
+```sh
+python3 manage.py collectstatic
+python3 manage.py runserver
+```
 
 Create super user which will manage the staffs
 
-    python3 manage.py createsuperuser --email name@domain.com --username name
+```sh
+python3 manage.py createsuperuser --email name@domain.com --username name
+```
 
 ## How is works
 -   Only the super user can create staffs
@@ -33,6 +39,7 @@ Create super user which will manage the staffs
 -   The super user can send emails to all or selected users
 ### Test
 To run some tests I have written use
+
 ```sh
 python3 manage.py test users
 ```
