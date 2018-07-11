@@ -31,7 +31,6 @@ class User(AbstractUser):
         ('Active', 'Active'),
         ('Retired', 'Retired')
     )
-    # email = models.EmailField(verbose_name='email address', max_length=255, unique=True)
     first_name = models.CharField(max_length=255, null=True, blank=True)
     last_name = models.CharField(max_length=255, null=True, blank=True)
     gender = models.CharField(max_length=10, choices=[('male', 'male'), ('female', 'female')], null=True, blank=True)

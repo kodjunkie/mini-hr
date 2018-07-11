@@ -31,3 +31,8 @@ Create super user which will manage the staffs
 
 ## Added feature
 -   The super user can send emails to all or selected users
+### Test
+To run some tests I have written use
+```sh
+python3 manage.py test users
+```
