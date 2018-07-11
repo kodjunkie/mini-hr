@@ -35,7 +35,8 @@ python3 manage.py runserver
 ```
 
 ## After Installation
-    Visit this links in your browser
+Visit this links in your browser
+
     http://localhost:8000 - Users
     http://localhost:8000/admin - Adminstrator / Super user
 
