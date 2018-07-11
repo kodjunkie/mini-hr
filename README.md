@@ -19,14 +19,25 @@ Then open ``.dbconfig`` environment file and update database details and lastly 
 
 ```sh
 python3 manage.py collectstatic
-python3 manage.py runserver
+python3 manage.py migrate
 ```
 
-Create super user which will manage the staffs
+Create super user who will manage the staffs
 
 ```sh
 python3 manage.py createsuperuser --email name@domain.com --username name
 ```
+
+Finally, start the server with this command
+
+```sh
+python3 manage.py runserver
+```
+
+## After Installation
+    Visit this links in your browser
+    http://localhost:8000 - Users
+    http://localhost:8000/admin - Adminstrator / Super user
 
 ## How is works
 -   Only the super user can create staffs
