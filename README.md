@@ -3,7 +3,7 @@ This is the git repo for the small HR software task..
 
 ## Prerequisites
 -   ``python >= 3.5``
--   ``python3-dev & default-libmysqlclient-dev`` # Debian / Ubuntu
+-   ``python3-dev & default-libmysqlclient-dev`` #Debian Users
 -   Mac Users [follow this link](https://github.com/PyMySQL/mysqlclient-python) to get the prerequisites
 
 ## Installation
