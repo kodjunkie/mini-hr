@@ -47,10 +47,13 @@ Visit this links in your browser
 -   Search by 'email', 'phone', 'department', 'position'
 -   And also filter by 'department', 'is active' and 'work status'
 
-## Added feature
+## Added features
 -   The super user can send emails to all or selected users
+-   For the sake of demo, the message is logged to the console
+-   I have also added some tests
+
 ### Test
-To run some tests I have written use
+To run the tests I have written use
 
 ```sh
 python3 manage.py test users
