@@ -7,7 +7,7 @@ This is the git repo for the small HR software task..
 -   Mac Users [follow this link](https://github.com/PyMySQL/mysqlclient-python) to get the prerequisites
 
 ## Installation
-Open terminal in desired directory
+Open terminal in desired directory and run these commands
 
 ```sh
 git clone git@github.com:Paplow/flexisaf-django-task.git
@@ -15,7 +15,7 @@ cd flexisaf-django-task
 pip3 install -r requirements.txt
 ```
 
-Then open ``.dbconfig`` environment file and update database details and lastly run
+Then open ``.dbconfig`` environment file and update database details, then run
 
 ```sh
 python3 manage.py collectstatic
@@ -35,7 +35,7 @@ python3 manage.py runserver
 ```
 
 ## After Installation
-Visit this links in your browser
+Visit these links in your browser
 
     http://localhost:8000 - Users
     http://localhost:8000/admin - Adminstrator / Super user
