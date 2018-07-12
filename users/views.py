@@ -116,11 +116,11 @@ class SendUserEmails(LoginRequiredMixin, FormView):
         users = form.cleaned_data['users']
         subject = form.cleaned_data['subject']
         message = form.cleaned_data['message']
-        recipient = []
+        recipients = []
         for user in users:
-            recipient.append(user.email)
-        send_mail(subject, message, 'from@example.com', recipient)
-        user_message = '{0} users emailed successfully, for the sake of demo the message is logged in the console.'\
+            recipients.append(user.email)
+        send_mail(subject, message, 'from@example.com', recipients)
+        user_message = '{0} user(s) emailed successfully, for the sake of demo the message is logged in the console.'\
             .format(form.cleaned_data['users'].count())
         messages.success(self.request, user_message)
         return super(SendUserEmails, self).form_valid(form)
