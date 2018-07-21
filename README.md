@@ -52,7 +52,7 @@ Visit these links in your browser
 -   For the sake of demo, the message is logged to the console
 -   I have also added some tests
 
-### Test
+### Tests
 To run the tests I have written use
 
 ```sh
