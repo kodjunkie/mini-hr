@@ -1,5 +1,5 @@
 # Mini HR
-Mini HR software project.
+A mini HR management software.
 
 ![logo](./miniHR.png)
 
@@ -55,7 +55,7 @@ Visit these links in your browser
 -   I have also added some tests
 
 ### Test
-To run unit test, use
+To run unit tests, use
 
 ```sh
 python3 manage.py test users
