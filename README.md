@@ -1,5 +1,7 @@
-# flexisaf-django-task
-This is the git repo for the small HR software task..
+# Mini HR
+Mini HR software project.
+
+![logo](./miniHR.png)
 
 ## Prerequisites
 -   ``python >= 3.5``
@@ -10,8 +12,8 @@ This is the git repo for the small HR software task..
 Open terminal in desired directory and run these commands
 
 ```sh
-git clone git@github.com:Paplow/flexisaf-django-task.git
-cd flexisaf-django-task
+git clone https://github.com/kodjunkie/mini-hr.git
+cd mini_hr
 pip3 install -r requirements.txt
 ```
 
@@ -52,9 +54,11 @@ Visit these links in your browser
 -   For the sake of demo, the message is logged to the console
 -   I have also added some tests
 
-### Tests
-To run the tests I have written use
+### Test
+To run unit test, use
 
 ```sh
 python3 manage.py test users
 ```
+
+:heart:
